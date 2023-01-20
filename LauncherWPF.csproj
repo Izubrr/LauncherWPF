@@ -1,0 +1,74 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\1.png" />
+    <None Remove="Resources\2.png" />
+    <None Remove="Resources\3.png" />
+    <None Remove="Resources\4.png" />
+    <None Remove="Resources\Close.png" />
+    <None Remove="Resources\CloseRed.png" />
+    <None Remove="Resources\Hamburger.png" />
+    <None Remove="Resources\HamburgerHover.png" />
+    <None Remove="Resources\icon.png" />
+    <None Remove="Resources\Minimize.png" />
+    <None Remove="Resources\MinimizeGray.png" />
+    <None Remove="Resources\Play.png" />
+    <None Remove="Resources\PlayClick.png" />
+    <None Remove="Resources\PlayHover.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Hamburger.png" />
+    <Resource Include="Resources\HamburgerHover.png" />
+    <Resource Include="Resources\icon.png" />
+    <Resource Include="Resources\PlayClick.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CmlLib.Core" Version="3.3.5" />
+    <PackageReference Include="Gu.Wpf.FlipView" Version="2.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\1.png" />
+    <Resource Include="Resources\2.png" />
+    <Resource Include="Resources\3.png" />
+    <Resource Include="Resources\4.png" />
+    <Resource Include="Resources\Close.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\CloseRed.png" />
+    <Resource Include="Resources\Minimize.png" />
+    <Resource Include="Resources\MinimizeGray.png" />
+    <Resource Include="Resources\Play.png" />
+    <Resource Include="Resources\PlayHover.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>

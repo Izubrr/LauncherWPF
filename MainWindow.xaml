@@ -1,0 +1,86 @@
+﻿<Window x:Class="LauncherWPF.MainWindow"
+        xmlns:c="http://schemas.microsoft.com/winfx/2009/xaml"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LauncherWPF"
+        xmlns:gu="https://github.com/GuOrg/Gu.Wpf.FlipView"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Background="#202225" Icon="/Resources/icon.png" Closing="Window_Closing">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <gu:FlipView x:Name="FlipView1" SelectedIndex="0" ShowArrows="False" ShowIndex="False" Margin="-2,-8,0,-3" MouseDown="FlipView1_MouseDown">
+            <Image Source="/Resources/1.png" Margin="-13,8,-15,2" Stretch="UniformToFill" StretchDirection="Both" />
+            <Image Source="/Resources/2.png" Stretch="UniformToFill" />
+            <Image Source="/Resources/3.png" Stretch="UniformToFill" />
+            <Image Source="/Resources/4.png" Stretch="UniformToFill" />
+        </gu:FlipView>
+        <Rectangle x:Name="Footer" Fill="#27292f" Margin="-2,364,0,-3" Opacity="0.8" />
+        <ProgressBar x:Name="ProgressBar1" HorizontalAlignment="Center" Height="43" Margin="0,311,0,0" VerticalAlignment="Top" Width="756" Minimum="0" Maximum="327" Value="0" Background="{x:Null}" BorderBrush="#FF202225" BorderThickness="0,0,0,0" Opacity="0.8">
+            <ProgressBar.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#218a5b" Offset="1"/>
+                    <GradientStop Color="#FF308C73" Offset="0"/>
+                </LinearGradientBrush>
+            </ProgressBar.Foreground>
+        </ProgressBar>
+        <Label x:Name="Label1" HorizontalAlignment="Center" Margin="0,316,0,0" VerticalAlignment="Top" Width="720" Height="32" FontSize="14" Foreground="White" Background="{x:Null}" BorderThickness="0,0,0,0" RenderTransformOrigin="0.5,0.5" FontStyle="Normal" />
+        <Rectangle x:Name="Header" Fill="#27292f" Margin="-2,0,0,419" MouseDown="Header_MouseDown" />
+        <Image x:Name="BtnClose" Source="/Resources/Close.png" Stretch="Uniform" Margin="762,5,4,424" Width="34" Height="21" MouseDown="BtnClose_MouseDown" MouseEnter="BtnClose_MouseEnter" MouseLeave="BtnClose_MouseLeave" />
+        <Image x:Name="BtnMinimize" Source="/Resources/Minimize.png" Margin="728,5,38,424" Width="34" Height="21" MouseDown="BtnMinimize_MouseDown" MouseEnter="BtnMinimize_MouseEnter" MouseLeave="BtnMinimize_MouseLeave" />
+        <TextBox x:Name="TextBox1" TextAlignment="Center" VerticalContentAlignment="Center" MaxLength="20" HorizontalAlignment="Left" Margin="16,386,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="32" FontSize="14" Background="#FF27292F" BorderBrush="#FF202225" BorderThickness="2,2,2,2" Foreground="White" RenderTransformOrigin="0.5,0.5" GotFocus="TextBox1_GotFocus" LostFocus="TextBox1_LostFocus" Text="NickName" />
+        <CheckBox x:Name="CheckBox1" Content="Close Launcher" HorizontalAlignment="Left" Margin="25,423,0,0" VerticalAlignment="Top" Foreground="White" IsChecked="True"/>
+        <CheckBox x:Name="CheckBox2" Content="Safe Mode" HorizontalAlignment="Left" Margin="170,423,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Izubr's Launcher v1.5" HorizontalAlignment="Left" Margin="10,2,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="125" FontWeight="Normal"/>
+        <Grid x:Name="MenuButton" Margin="730,388,0,19" HorizontalAlignment="Left" Width="45">
+            <Rectangle x:Name="MenuButtonRectangle1" RadiusX="5" RadiusY="4" HorizontalAlignment="Center" Height="10" VerticalAlignment="Center" Width="45" Fill="White" Stroke="#FF202225" StrokeThickness="2"/>
+            <Rectangle x:Name="MenuButtonRectangle2" RadiusX="5" RadiusY="4" HorizontalAlignment="Center" Height="10" VerticalAlignment="Top" Width="45" Fill="White" Stroke="#FF202225" Margin="0,32,0,0" StrokeThickness="2"/>
+            <Rectangle x:Name="MenuButtonRectangle3" RadiusX="5" RadiusY="4" HorizontalAlignment="Center" Height="10" VerticalAlignment="Top" Width="45" Fill="White" Stroke="#FF202225" Margin="0,2,0,0" StrokeThickness="2"/>
+        </Grid>
+        <Rectangle Margin="730,388,25,17" Width="45" Height="45" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseDown="Bar_MouseDown" Fill="#00000000"/>
+        <Grid x:Name="MenuBar" HorizontalAlignment="Left" VerticalAlignment="Top" Height="170" RenderTransformOrigin="0.614,0.614" Margin="621,212,0,0" Width="179" Visibility="Hidden">
+            <Rectangle HorizontalAlignment="Center" RadiusX="10" RadiusY="10" Height="137" VerticalAlignment="Top" Width="150" Fill="#FF1F2025" Opacity="0.8" Margin="0,33,0,0"/>
+            <Button x:Name="Btn1" Content="Minecraft folder" HorizontalAlignment="Center" Margin="0,46,0,0" VerticalAlignment="Top" Background="#FF278457" Foreground="White" BorderBrush="{x:Null}" Height="24" Width="126" Click="Btn1_Click" FontWeight="Bold"/>
+            <Button x:Name="Btn2" Content="Install Mods" HorizontalAlignment="Center" Margin="0,75,0,0" VerticalAlignment="Top" Background="#FF278457" Foreground="White" BorderBrush="{x:Null}" Height="24" Width="126" Click="Btn2_Click" FontWeight="Bold"/>
+            <Button x:Name="Btn3" Content="Mods" HorizontalAlignment="Center" VerticalAlignment="Top" Background="#FF278457" Foreground="White" BorderBrush="{x:Null}" Height="24" Width="126" Click="Btn3_Click" FontWeight="Bold" Margin="0,105,0,0"/>
+            <Button x:Name="Btn4" Content="Discord" HorizontalAlignment="Center" Margin="0,134,0,0" VerticalAlignment="Top" Background="#FF278457" Foreground="White" BorderBrush="{x:Null}" Height="24" Width="126" Click="Btn4_Click" FontWeight="Bold"/>
+        </Grid>
+        <Grid x:Name="BtnPlay" Margin="330,371,330,5" MouseDown="BtnPlay_MouseDown" MouseEnter="BtnPlay_MouseEnter" MouseLeave="BtnPlay_MouseLeave">
+            <Rectangle x:Name="BtnPlayRectangle" RadiusX="10" RadiusY="10" HorizontalAlignment="Center" Height="74" VerticalAlignment="Center" Width="140" Fill="#FF278457" StrokeThickness="4" Stroke="#FF1E714C" MouseEnter="BtnPlay_MouseEnter" MouseLeave="BtnPlay_MouseLeave" MouseDown="BtnPlay_MouseDown"/>
+            <TextBlock x:Name="PlayLabel" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" Text="PLAY" FontSize="25" Foreground="White" FontWeight="Bold" MouseEnter="PlayLabel_MouseEnter" MouseLeave="PlayLabel_MouseLeave"/>
+            <Rectangle x:Name="BtnPlayEnabled" RadiusX="10" RadiusY="10" HorizontalAlignment="Center" Height="74" VerticalAlignment="Center" Width="140" Fill="#FF303237" StrokeThickness="4" Stroke="#FF303237" Opacity="0.5" Visibility="Hidden"/>
+        </Grid>
+        <Grid x:Name="BtnRam" Margin="160,386,497,32" MouseDown="BtnRam_MouseDown" MouseEnter="BtnRam_MouseEnter" MouseLeave="BtnRam_MouseLeave">
+            <Rectangle x:Name="BtnRamRectangle" HorizontalAlignment="Center" Height="32" VerticalAlignment="Center" Width="140" Fill="#FF27292F" StrokeThickness="2" Stroke="#FF202225"/>
+            <TextBlock TextAlignment="Center" Text="Amount of RAM" Margin="0,7,0,9" FontSize="14" FontWeight="Bold" Foreground="White"/>
+            <Rectangle x:Name="BtnRamEnabled" HorizontalAlignment="Center" Height="32" VerticalAlignment="Center" Width="140" Fill="#FF303237" StrokeThickness="2" Stroke="#FF303237" Opacity="0.5" Visibility="Hidden"/>
+        </Grid>
+        <Grid x:Name="RamBar" HorizontalAlignment="Left" VerticalAlignment="Top" Height="121" RenderTransformOrigin="0.614,0.614" Margin="135,260,0,0" Width="212" Visibility="Hidden">
+            <Rectangle HorizontalAlignment="Center" RadiusX="10" RadiusY="10" Height="121" VerticalAlignment="Top" Width="212" Fill="#FF1F2025" Opacity="0.8" Margin="0,0,0,0"/>
+            <Slider x:Name="SliderRam" HorizontalAlignment="Center" Margin="0,73,0,0" VerticalAlignment="Top" Width="190" Maximum="12288" Minimum="4096" TickPlacement="BottomRight" TickFrequency="1024" IsSnapToTickEnabled="True" Value="5125" MouseUp="SliderRam_MouseUp"/>
+            <Label Content="Select RAM amount" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14" FontWeight="Bold"/>
+            <Label Content="With mods, 5Gb or more is recommended" HorizontalAlignment="Center" Margin="0,96,0,0" VerticalAlignment="Top" Foreground="#FFB5B5B5" FontSize="11"/>
+            <TextBox x:Name="LabelRam" HorizontalAlignment="Left" Margin="10,44,0,0" TextWrapping="Wrap" Text="{Binding ElementName=SliderRam, Path=Value, StringFormat={}{0:#}}" VerticalAlignment="Top" Width="120" Focusable="False" AllowDrop="False" Foreground="White" Background="{x:Null}" FontSize="14" IsHitTestVisible="False" IsTabStop="False" BorderBrush="{x:Null}"/>
+        </Grid>
+        <Grid x:Name="VerisonBar" VerticalAlignment="Top" Height="121" RenderTransformOrigin="0.614,0.614" Margin="0,265,88,0" HorizontalAlignment="Right" Width="223" Visibility="Hidden">
+            <Rectangle HorizontalAlignment="Center" RadiusX="10" RadiusY="10" Height="76" VerticalAlignment="Top" Width="219" Fill="#FF1F2025" Opacity="0.8" Margin="0,55,0,0"/>
+            <Rectangle HorizontalAlignment="Center" Height="2" Margin="0,90,0,0" VerticalAlignment="Top" Width="219" Fill="#FF202225" RenderTransformOrigin="0.5,0.5"/>
+            <Label x:Name="Versionlabel2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="1.16.5" Margin="2,90,2,0" FontSize="14" FontWeight="Bold" Foreground="White" Background="#00000000" MouseEnter="Versionlabel2_MouseEnter" MouseLeave="Versionlabel2_MouseLeave" MouseDown="Versionlabel2_MouseDown"/>
+            <Label x:Name="VersionLabel1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Forge 1.16.5 (36.2.34)" Margin="2,55,2,29" FontSize="14" FontWeight="Bold" Foreground="#FF565656" Background="#00000000" MouseEnter="VersionLabel1_MouseEnter" MouseLeave="VersionLabel1_MouseLeave" MouseDown="VersionLabel1_MouseDown"/>
+        </Grid>
+        <Grid x:Name="VersionBtn" Margin="489,386,0,32" MouseDown="VersionBtn_MouseDown" MouseEnter="VersionBtn_MouseEnter" MouseLeave="VersionBtn_MouseLeave" HorizontalAlignment="Left" Width="223">
+            <Rectangle x:Name="BtnVersionRectangle" HorizontalAlignment="Center" Height="32" VerticalAlignment="Center" Width="219" Fill="#FF27292F" StrokeThickness="2" Stroke="#FF202225"/>
+            <TextBlock x:Name="VersionText" TextAlignment="Center" Text="1.16.5" Margin="4,7,2,9" FontSize="14" FontWeight="Bold" Foreground="White"/>
+            <Rectangle x:Name="BtnVersionEnabled" HorizontalAlignment="Center" Height="32" VerticalAlignment="Center" Width="140" Fill="#FF303237" StrokeThickness="2" Stroke="#FF303237" Opacity="0.5" Visibility="Hidden"/>
+        </Grid>
+        <Label Content="Site of the minecraft project" HorizontalAlignment="Left" Margin="522,418,0,0" VerticalAlignment="Top" Foreground="White"/>
+    </Grid>
+</Window>
